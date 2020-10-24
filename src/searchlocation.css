@@ -38,3 +38,11 @@
 .search-location .fa-map-marker-alt:hover {
   color: #fd7e4a;
 }
+.card-today {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 0.5vw 0;
+}
+.card {
+  background-color: blue;
+}
