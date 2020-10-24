@@ -47,6 +47,7 @@
   background-color: #001629;
   margin: 1vw;
   text-align: center;
+  padding: 2px;
 }
 .card-text {
   display: block;
@@ -59,5 +60,9 @@
   line-height: 1.2;
 }
 .card-today {
-  font-size: 1vw;
+  font-size: 1.1vw;
+}
+h5 {
+  text-transform: capitalize;
+  font-size: 2.2vw;
 }

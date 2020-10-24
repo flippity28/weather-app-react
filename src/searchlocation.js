@@ -137,41 +137,41 @@ let searchForm =
 
        <div class="card-deck row-cols-1">
         <div class="card col-sm-6">
-               <h5>Friday 4th</h5>
+               <h6>Friday 4th</h6>
                <div  class="card-text">
                   <i class="fas fa-cloud-rain"></i>
-                    15C</div>
+                    <div>15°C</div></div>
         </div>
         <div class="card col-sm-6">
-              <h5>Saturday 5th</h5>
+              <h6>Saturday 5th</h6>
                 <div  class="card-text">
                   <i class="fas fa-cloud"></i>
-                  17°C
+                  <div>17°C</div>
                 </div>
           </div>
        
         <div className="card col-sm-6">
-            <h5>Sunday 6th</h5>
+            <h6>Sunday 6th</h6>
                 <div  className="card-text">
                   <i className="fas fa-cloud-sun"></i>
-                    18°C
+                   <div>18°C</div> 
                      
           </div>
         </div>
         <div class="card col-sm-6">
          
-            <h5>Monday 7th</h5>
+            <h6>Monday 7th</h6>
                 <div  class="card-text">
                   <i class="fas fa-sun"></i>
-                    20°C
+                    <div>20°C</div>
                 </div>     
         
         </div>  
         <div class="card col-sm-6">
-            <h5>Tuesday 8th</h5>
+            <h6>Tuesday 8th</h6>
                 <div  class="card-text">
                   <i class="fas fa-smog"></i>
-                    18°C 
+                   <div>18°C</div>  
                 </div>            
           </div>  
         </div>
