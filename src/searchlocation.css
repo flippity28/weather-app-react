@@ -44,5 +44,20 @@
   padding: 0.5vw 0;
 }
 .card {
-  background-color: blue;
+  background-color: #001629;
+  margin: 1vw;
+  text-align: center;
+}
+.card-text {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.card-current .fas,
+.current-temp {
+  font-size: 4vw;
+  line-height: 1.2;
+}
+.card-today {
+  font-size: 1vw;
 }

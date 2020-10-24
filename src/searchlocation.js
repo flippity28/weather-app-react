@@ -11,6 +11,7 @@ export default function SearchLocation() {
 
   const [city, setCity] = useState("");
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [currentWeather, updateCurrentWeather]= useState({})
 
   function handleSubmit(event){event.preventDefault()
   if (city.length> 0) {let apiKey = "f5937ab22539bc6268f9a982f0955523"
@@ -21,9 +22,64 @@ export default function SearchLocation() {
   function updateCity(event){setCity(event.target.value)}
 
   function displayWeather (response){console.log(response)
-  setDataLoaded(true)}
-
-  let searchForm =
+  setDataLoaded(true)
+  updateCurrentWeather({temperature: Math.round(response.data.main.temp),
+    feels_temperature: Math.round(response.data.main.feels_like),
+    description: response.data.weather[0].description,
+    })
+}
+  function formatDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = days[date.getDay()];
+  let month = months[date.getMonth()];
+  let currentDate = ordinal(date.getDate());
+  let hour = date.getHours();
+  let min = addZero(date.getMinutes());
+  let formattedDate = `${hour}:${min} ${day} ${currentDate} ${month}`;
+  return formattedDate;
+}
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+function ordinal(currentDate) {
+  if (currentDate === 1 || currentDate === 21 || currentDate === 31) {
+    return currentDate + "st";
+  } else if (currentDate === 2 || currentDate === 22) {
+    return currentDate + "nd";
+  } else if (currentDate === 3 || currentDate === 23) {
+    return currentDate + "rd";
+  } else {
+    return currentDate + "th"
+  }
+}
+let currentDate = formatDate(new Date())
+ 
+let searchForm =
     <div className="search-location row">
       <div className="col-3"> </div>
       <form className=" form-group location-search-form col-sm-6" onSubmit={handleSubmit}>
@@ -45,18 +101,23 @@ export default function SearchLocation() {
 {return (
 <div> 
   {searchForm}
-<div class="card-deck row-cols-1">
-        <div class="card col-sm-6">
-             <h5>London</h5>
-            <h6>12:27 Thursday 3rd September</h6>
-            <div  class="card-text row">
-              <i class="fas fa-info today-symbol col-6 justify-content-center"></i>
-                <div class="card-text col-6 justify-content-center">12 °C
+<div className="card-deck row-cols-1">
+        <div className="card card-current col-sm-6">
+             <h5>{city}</h5>
+            <h6>{currentDate}</h6>
+            <div  className="card">
+              <div className="row">
+              <div className="today-icon col-6">
+                <i className="fas fa-info "></i></div>
+               <div className="current-temp col-6">{currentWeather.temperature}°C
                 </div>
-            </div>
-            <div class="row col-12 justify-content-center"> Cloudy</div>
-                  <div class="row col-12 justify-content-center">Feels like 12°C
+                </div>
+                <div className="card-text row col-12"> Cloudy</div>
+                  <div className="card-text row col-12">Feels like {currentWeather.feels_temperature}°C
                   </div>
+                  
+            </div>
+            
         </div>
       
         <div class="card card-today col-sm-6">
@@ -89,10 +150,10 @@ export default function SearchLocation() {
                 </div>
           </div>
        
-        <div class="col-sm-6">
+        <div className="card col-sm-6">
             <h5>Sunday 6th</h5>
-                <div  class="card-text">
-                  <i class="fas fa-cloud-sun"></i>
+                <div  className="card-text">
+                  <i className="fas fa-cloud-sun"></i>
                     18°C
                      
           </div>
