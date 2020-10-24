@@ -1,0 +1,14 @@
+.weather-today .card-deck {
+  margin-top: 15px;
+}
+.weather-today .card {
+  background-color: #001629 !important;
+  border: solid 1.5px white !important;
+  box-shadow: #fd7e4a 0 0 13px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.weather-today #today-description,
+#current-weather-description {
+  text-transform: capitalize;
+}

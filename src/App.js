@@ -1,22 +1,31 @@
 import React from 'react';
 import './App.css';
-import Weather from './weather.js'
+import Header from "./header.js";
+import "./header.css";
+import "./searchlocation.css";
+import WeatherToday from "./weathertoday.js";
+import "./weathertoday.css";
+import FiveDayForecast from "./fivedayforecast.js";
+import "./fivedayforecast.css";
+import MoreInfo from "./moreinfo.js";
+import "./moreinfo.css";
+import UnitConversion from "./unitconversion.js";
+import "./unitconversion.css";
+import Footer from "./footer.js";
+import "./footer.css";
 
-
-
-
-function App() {
+export default function  App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <div>
-          <Weather />
-        </div>
-        
-      </header>
+    <div className="App container-sm">
+      <Header />
+       <WeatherToday />
+      <FiveDayForecast />
+      <MoreInfo />
+      <UnitConversion />
+      <Footer />
+     
     </div>
   );
 }
 
-export default App;
+

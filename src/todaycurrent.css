@@ -1,0 +1,41 @@
+.card-today {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 0.5vw 0;
+}
+.card-title-one {
+  text-align: center;
+  font-size: calc(1em + 1.5vw);
+  font-weight: 900;
+  color: white;
+  text-transform: capitalize;
+}
+
+.card-body-one {
+  padding: 0;
+}
+.time-and-date {
+  text-align: center;
+  font-size: calc(0.5em + 0.6vw);
+  margin: 0;
+  color: white;
+}
+.today-symbol {
+  font-size: calc(1.2em + 2.5vw);
+  padding-right: calc(0.5em + 0.5vw);
+  color: white;
+  text-align: right;
+  margin-top: calc(0.2em + 0.4vw);
+}
+.temp {
+  font-size: calc(1.2em + 2.5vw);
+  color: white;
+  padding: 0;
+  text-align: left;
+}
+.weather-description {
+  font-size: calc(0.5em + 0.7vw);
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}

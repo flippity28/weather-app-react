@@ -1,0 +1,15 @@
+.today-details .todays-forecast {
+  font-size: calc(0.5em + 0.5vw);
+  margin-bottom: 0;
+  padding-bottom: 1vw;
+  color: white;
+  text-align: center;
+}
+.today-details .card-title-two {
+  text-align: center;
+  font-size: calc(0.8em + 1.5vw);
+  color: white;
+}
+.card-body-two {
+  padding: 0;
+}

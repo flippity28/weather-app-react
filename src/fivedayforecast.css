@@ -1,0 +1,37 @@
+@media screen and (max-width: 600px) {
+  .card-title-three {
+    font-size: 1em;
+    margin-top: 0.5vw;
+  }
+}
+@media screen and (min-width: 601px) {
+  .five-day-forecast .card-title {
+    font-size: 1.3vw;
+    margin-top: 0.5vw;
+  }
+}
+.five-day-forecast .five-day-symbol {
+  font-size: calc(1.3em + 1.5vw);
+  -webkit-text-stroke: 1.5px #fd7e4a;
+}
+.five-day-forecast .five-day-temp {
+  font-size: calc(0.8em + 0.1vw);
+  color: #fd7e4a;
+}
+.five-day-forecast .five-day {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  max-width: 60%;
+}
+.five-day-forecast .card-title {
+  color: #fd7e4a;
+}
+.five-day-forecast .card {
+  background-color: #001629 !important;
+  border: solid 1.5px white !important;
+  box-shadow: #fd7e4a 0 0 13px;
+  padding: 5px;
+  margin: 10px;
+}

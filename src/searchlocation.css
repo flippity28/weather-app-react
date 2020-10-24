@@ -1,0 +1,40 @@
+.search-location {
+  margin-top: 7vw;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.search-location input {
+  text-align: center;
+  border: none;
+  background-color: rgba(253, 252, 252, 0.6);
+  border-radius: 3px;
+  color: #001629;
+  padding: 0px 5px;
+  margin: 0;
+}
+
+.search-location #search-button {
+  color: grey;
+  transition: ease-in-out 200ms;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.search-location #search-button:hover {
+  background-color: #fd7e4a;
+  color: white;
+}
+.search-location .my-location {
+  background-color: transparent;
+  border: solid grey 1px;
+  border: none;
+  padding: 0;
+}
+
+.search-location .fa-map-marker-alt {
+  color: white;
+  font-size: calc(0.5em + 1.6vw);
+  text-align: left;
+}
+.search-location .fa-map-marker-alt:hover {
+  color: #fd7e4a;
+}

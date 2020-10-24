@@ -1,0 +1,12 @@
+.more-info #more-info-link {
+  color: white;
+  text-align: center;
+  font-size: calc(0.5em + 0.5vw);
+  margin-top: 1vw;
+  margin-bottom: 10px;
+  display: block;
+}
+.more-info #more-info-link:hover {
+  color: #fd7e4a;
+  text-decoration: none;
+}
