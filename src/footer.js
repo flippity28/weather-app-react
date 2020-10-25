@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="footer">
       <a
-        href="https://github.com/flippity28/Weather-app"
+        href="https://github.com/flippity28/weather-app-react"
         class="code-source"
         target="_blank"
         rel="noopener noreferrer" 
