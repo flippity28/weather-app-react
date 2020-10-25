@@ -17,10 +17,10 @@ export default function SearchLocation() {
 
  // if (dataLoaded){} else {axios.get(apiUrl).then(getCoords);
    // setDataLoaded(true)}
-
+let apiKey = `e024c14bd2f0eae086692698825b45e0`
   function handleSubmit(event){event.preventDefault();
     if (city.length> 0) {
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e024c14bd2f0eae086692698825b45e0`;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
    axios.get(apiUrl).then(getCoords)
 }   else{alert("Please search for a city")}
 }
@@ -33,7 +33,7 @@ export default function SearchLocation() {
   updateCountry(response.data.name)
   let lat = response.data.coord.lat
   let long = response.data.coord.lon
-  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=e024c14bd2f0eae086692698825b45e0
+  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}
 &units=metric`;
   axios.get(apiUrlTwo).then(showWeatherForecast);
      }
