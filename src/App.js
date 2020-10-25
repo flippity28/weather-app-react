@@ -1,12 +1,7 @@
 import React from 'react';
 import './App.css';
 import WeatherForecast from "./weatherforecast.js";
-import "./header.css";
 import "./searchlocation.css";
-
-
-
-
 
 
 export default function  App() {

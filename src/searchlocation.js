@@ -9,25 +9,60 @@ import "./moreinfo.css";
 
 export default function SearchLocation() {
 
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("London");
+  const [cityName, updateCityName]= useState("London");
+  const [country, updateCountry] = useState("GB");
   const [dataLoaded, setDataLoaded] = useState(false)
-  const [currentWeather, updateCurrentWeather]= useState({})
+  const [weather, updateWeather]= useState({})
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e024c14bd2f0eae086692698825b45e0`;
 
-  function handleSubmit(event){event.preventDefault()
-  if (city.length> 0) {let apiKey = "f5937ab22539bc6268f9a982f0955523"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayWeather)
-} else{alert("Please search for a city")}}
+  if (dataLoaded){} else {axios.get(apiUrl).then(getCoords);
+    setDataLoaded(true)}
+
+  function handleSubmit(event){event.preventDefault();
+    if (city.length> 0) {
+    axios.get(apiUrl).then(getCoords)
+}   else{alert("Please search for a city")}
+}
 
   function updateCity(event){setCity(event.target.value)}
 
-  function displayWeather (response){console.log(response)
-  setDataLoaded(true)
-  updateCurrentWeather({temperature: Math.round(response.data.main.temp),
-    feels_temperature: Math.round(response.data.main.feels_like),
-    description: response.data.weather[0].description,
-    })
-}
+  function getCoords (response){
+  console.log(response);
+  updateCityName(response.data.name)
+  updateCountry(response.data.name)
+  let lat = response.data.coord.lat
+  let long = response.data.coord.lon
+  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=e024c14bd2f0eae086692698825b45e0
+&units=metric`;
+  axios.get(apiUrlTwo).then(showWeatherForecast);
+     }
+
+  function showWeatherForecast(response){
+    //setDataLoaded(true);
+  console.log(response);
+  let todaySunriseUnix = response.data.daily[0].sunrise;
+  let timeSunrise = new Date(todaySunriseUnix * 1000);
+  let hoursSunrise = addZero(timeSunrise.getHours());
+  let minutesSunrise = addZero(timeSunrise.getMinutes());
+  let todaySunsetUnix = response.data.daily[0].sunset;
+  let timeSunset = new Date(todaySunsetUnix * 1000);
+  let hoursSunset = addZero(timeSunset.getHours());
+  let minutesSunset = addZero(timeSunset.getMinutes());
+  
+updateWeather({currentTemp: Math.round(response.data.current.temp),
+currentFeelsTemp: Math.round(response.data.current.feels_like),
+currentDescription: response.data.current.weather[0].description,
+todayDescription: response.data.daily[0].weather[0].description,
+todayHighTemp: Math.round(response.data.daily[0].temp.max),
+  todayLowTemp: Math.round(response.data.daily[0].temp.min),
+  todayPrecip: Math.round(response.data.daily[0].pop * 100),
+  todayWindspeed: Math.round(response.data.daily[0].wind_speed * 3.6),
+  sunrise:`${hoursSunrise}:${minutesSunrise}`,
+  sunset: `${hoursSunset}:${minutesSunset}`,
+
+  })}
+
   function formatDate(date) {
   let days = [
     "Sunday",
@@ -77,6 +112,7 @@ function ordinal(currentDate) {
     return currentDate + "th"
   }
 }
+
 let currentDate = formatDate(new Date())
  
 let searchForm =
@@ -87,7 +123,8 @@ let searchForm =
           type="text"
           placeholder="Type a location"
           autoFocus="on"
-          autoComplete="off" onChange={updateCity}
+          autoComplete="off" 
+          onChange={updateCity}
         />
         <input type="submit" id="search-button" value="Search" />
        
@@ -95,57 +132,56 @@ let searchForm =
           <i className="fas fa-map-marker-alt"></i>
         </button>
     </div>
-    
-    if (dataLoaded)
+   
   
-{return (
+   
+return (
 <div> 
   {searchForm}
 <div className="card-deck row-cols-1">
         <div className="card card-current col-sm-6">
              <h5>{city}</h5>
             <h6>{currentDate}</h6>
-            <div  className="card">
+            <div  className="card-text">
               <div className="row">
               <div className="today-icon col-6">
                 <i className="fas fa-info "></i></div>
-               <div className="current-temp col-6">{currentWeather.temperature}°C
+               <div className="current-temp col-6">{weather.currentTemp}°C
                 </div>
-                </div>
-                <div className="card-text row col-12"> Cloudy</div>
-                  <div className="card-text row col-12">Feels like {currentWeather.feels_temperature}°C
+                           <div className="card-text row col-12"> {weather.currentDescription}</div>
+                  <div className="card-text row col-12">Feels like {weather.currentFeelsTemp}°C
+                  </div> 
                   </div>
-                  
             </div>
             
         </div>
       
-        <div class="card card-today col-sm-6">
+        <div className="card card-today col-sm-6">
            <h5>Today's Forecast</h5>
-            <div class="card-text todays-forecast">
-              <div> <i class="fas fa-info-circle"></i> Cloudy with some showers</div>
-               <div><i class="fas fa-temperature-high"></i> Highs of 17 °C</div>
-                <div><i class="fas fa-temperature-low"></i> Lows of 10°C</div>
-                <div><i class="fas fa-umbrella"></i> 50% chance of precipitation</div>
-                <div><i class="fas fa-wind"></i> Windspeed 15 km/h </div>
-                <div><i class="fas fa-sun"></i> Sunrise at 05:55</div>
-                <div> <i class="fas fa-moon"></i> Sunset at 20:40</div>
+            <div className="card-text todays-forecast">
+              <div> <i className="fas fa-info-circle"></i> {weather.todayDescription}</div>
+               <div><i className="fas fa-temperature-high"></i> Highs of {weather.todayHighTemp}°C</div>
+                <div><i className="fas fa-temperature-low"></i> Lows of {weather.todayLowTemp}°C</div>
+                <div><i className="fas fa-umbrella"></i> {weather.todayPrecip}% chance of precipitation</div>
+                <div><i className="fas fa-wind"></i> Windspeed {weather.todayWindspeed} km/h </div>
+                <div><i className="fas fa-sun"></i> Sunrise at {weather.sunrise}</div>
+                <div> <i className="fas fa-moon"></i> Sunset at {weather.sunset}</div>
                 
             </div>
           </div>
         </div>
 
-       <div class="card-deck row-cols-1">
-        <div class="card col-sm-6">
+       <div className="card-deck row-cols-1">
+        <div className="card col-sm-6">
                <h6>Friday 4th</h6>
-               <div  class="card-text">
-                  <i class="fas fa-cloud-rain"></i>
+               <div  className="card-text">
+                  <i className="fas fa-cloud-rain"></i>
                     <div>15°C</div></div>
         </div>
-        <div class="card col-sm-6">
+        <div className="card col-sm-6">
               <h6>Saturday 5th</h6>
-                <div  class="card-text">
-                  <i class="fas fa-cloud"></i>
+                <div  className="card-text">
+                  <i className="fas fa-cloud"></i>
                   <div>17°C</div>
                 </div>
           </div>
@@ -158,31 +194,30 @@ let searchForm =
                      
           </div>
         </div>
-        <div class="card col-sm-6">
+        <div className="card col-sm-6">
          
             <h6>Monday 7th</h6>
-                <div  class="card-text">
-                  <i class="fas fa-sun"></i>
+                <div  className="card-text">
+                  <i className="fas fa-sun"></i>
                     <div>20°C</div>
                 </div>     
         
         </div>  
-        <div class="card col-sm-6">
+        <div className="card col-sm-6">
             <h6>Tuesday 8th</h6>
-                <div  class="card-text">
-                  <i class="fas fa-smog"></i>
+                <div  className="card-text">
+                  <i className="fas fa-smog"></i>
                    <div>18°C</div>  
                 </div>            
           </div>  
         </div>
-        <UnitConversion/>
-        <MoreInfo/>
+         <MoreInfo/>
+         <UnitConversion/>
+         <Footer />
         </div>
        
      
-  );} else {return<div>{searchForm}
-    <Footer />
-  </div>}
+  );
 
 
 

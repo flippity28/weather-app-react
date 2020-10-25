@@ -1,5 +1,16 @@
+.header .card-img-overlay {
+  padding: 0;
+}
+.header .card-title {
+  text-align: center;
+  font-size: calc(1.1em + 3.5vw);
+  text-shadow: #1a1a2e 0 3px 5px;
+  margin-top: 2vw;
+}
+
 .search-location {
   margin-top: 7vw;
+  margin-bottom: 2vw;
   text-align: center;
   font-size: 1.5vw;
 }
@@ -10,7 +21,7 @@
   border-radius: 3px;
   color: #001629;
   padding: 0px 5px;
-  margin: 0;
+  margin-top: 1vw;
 }
 
 .search-location #search-button {
@@ -45,9 +56,11 @@
 }
 .card {
   background-color: #001629;
-  margin: 1vw;
+  margin: 10px;
   text-align: center;
   padding: 2px;
+  box-shadow: #fd7e4a 0 0 13px;
+  border: solid 1.5px white;
 }
 .card-text {
   display: block;
@@ -65,4 +78,23 @@
 h5 {
   text-transform: capitalize;
   font-size: 2.2vw;
+}
+
+@media screen and (max-width: 600px) {
+  h5 {
+    font-size: 1em;
+    margin-top: 0.5vw;
+  }
+  .location-search-form {
+    text-align: center;
+    font-size: 3vw;
+    padding: 0;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 601px) {
+  .card-title-three {
+    font-size: 1.3vw;
+    margin-top: 0.5vw;
+  }
 }
