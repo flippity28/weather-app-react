@@ -12,16 +12,16 @@ export default function SearchLocation() {
   const [city, setCity] = useState("London");
   const [cityName, updateCityName]= useState("London");
   const [country, updateCountry] = useState("GB");
-  const [dataLoaded, setDataLoaded] = useState(false)
+  //const [dataLoaded, setDataLoaded] = useState(false)
   const [weather, updateWeather]= useState({})
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e024c14bd2f0eae086692698825b45e0`;
 
-  if (dataLoaded){} else {axios.get(apiUrl).then(getCoords);
-    setDataLoaded(true)}
+ // if (dataLoaded){} else {axios.get(apiUrl).then(getCoords);
+   // setDataLoaded(true)}
 
   function handleSubmit(event){event.preventDefault();
     if (city.length> 0) {
-    axios.get(apiUrl).then(getCoords)
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e024c14bd2f0eae086692698825b45e0`;
+   axios.get(apiUrl).then(getCoords)
 }   else{alert("Please search for a city")}
 }
 
@@ -140,7 +140,7 @@ return (
   {searchForm}
 <div className="card-deck row-cols-1">
         <div className="card card-current col-sm-6">
-             <h5>{city}</h5>
+             <h5>{cityName}, {country}</h5>
             <h6>{currentDate}</h6>
             <div  className="card-text">
               <div className="row">
