@@ -1,37 +1,37 @@
 import React from "react";
 
-export default function TodayCurrent() {
-  return (
-    <div className="today-current">
-      <h5 className="card-title-one" id="city">
-        London
-      </h5>
-      <h6 className="time-and-date" id="current-date">
-        12:27 Thursday 3<sup>rd</sup> September
-      </h6>
-      <div className="card-text row">
-        <i
-          className="fas fa-info today-symbol col-6 justify-content-center"
-          id="today-icon"
-        ></i>
-        <p className="temp card-text col-6 justify-content-center">
-          <span className="current-temp">12</span>
-          <span className="unit"> °C</span>
-        </p>
-      </div>
-      <div
-        className="weather-description row col-12 justify-content-center"
-        id="current-weather-description"
-      >
-        Cloudy
-      </div>
-      <div
-        className="weather-description row col-12 justify-content-center"
-        id="current-weather-feels-temp"
-      >
-        Feels like &#160;<span id="feels-like-temp"> 12</span>&#160;
-        <span className="unit"> °C</span>
-      </div>
-    </div>
-  );
-}
+export default function TodayCurrent(props) {
+    return (
+    <div className="card-deck row-cols-1">
+        <div className="card card-current col-sm-6">
+             <h5>city</h5>
+            <h6>date</h6>
+            <div  className="card-text">
+              <div className="row">
+              <div className="today-icon col-6">
+                <i className="fas fa-info "></i></div>
+               <div className="current-temp col-6">°C
+                </div>
+                           <div className="card-text row col-12"> </div>
+                  <div className="card-text row col-12">Feels like °C
+                  </div> 
+                  </div>
+            </div>
+            
+        </div>
+      
+        <div className="card card-today col-sm-6">
+           <h5>Today's Forecast</h5>
+            <div className="card-text todays-forecast">
+              <div> <i className="fas fa-info-circle"></i> weather description</div>
+               <div><i className="fas fa-temperature-high"></i> Highs of °C</div>
+                <div><i className="fas fa-temperature-low"></i> Lows of °C</div>
+                <div><i className="fas fa-umbrella"></i> % chance of precipitation</div>
+                <div><i className="fas fa-wind"></i> Windspeed  km/h </div>
+                <div><i className="fas fa-sun"></i> Sunrise at</div>
+                <div> <i className="fas fa-moon"></i> Sunset at </div>
+                
+            </div>
+          </div>
+           </div>)
+   }
