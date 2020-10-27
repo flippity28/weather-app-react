@@ -6,9 +6,6 @@ import UnitConversion from "./unitconversion.js";
 import "./unitconversion.css";
 import MoreInfo from "./moreinfo.js";
 import "./moreinfo.css";
-import TodayDate from "./todaydate.js"
-
-
 
 export default function SearchLocation() {
 
@@ -17,8 +14,6 @@ export default function SearchLocation() {
   const [country, updateCountry] = useState("GB");
   //const [dataLoaded, setDataLoaded] = useState(false)
   const [weather, updateWeather]= useState({})
-  const [date, updateDate] = useState({})
-
 
  // if (dataLoaded){} else {axios.get(apiUrl).then(getCoords);
    // setDataLoaded(true)}
@@ -35,38 +30,13 @@ let apiKey = `e024c14bd2f0eae086692698825b45e0`
   function getCoords (response){
   console.log(response);
   updateCityName(response.data.name)
-  updateCountry(response.data.sys.country)
+  updateCountry(response.data.name)
   let lat = response.data.coord.lat
   let long = response.data.coord.lon
   let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}
 &units=metric`;
   axios.get(apiUrlTwo).then(showWeatherForecast);
-      }
-
-function getOrdinal(value){ if (value === 1 || value === 21 || value === 31) {
-    return (value + "st")}
-   else if (value === 2 || value === 22) {
-   return (value +"nd");
-  } else if (value=== 3 || value === 23) {
-    return (value +"rd");
-  } else {
-    return(value + "th")
-  } }
-  function showDates(date)  {let days = [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat"
-  ]; 
-  let newDate = new Date (date)
-   let day = days[newDate.getDay()]
-     let dateValue = getOrdinal(newDate.getDate())
-     return (<div>{day} {dateValue}</div>)}
-  
-     
+     }
 
   function showWeatherForecast(response){
     //setDataLoaded(true);
@@ -79,9 +49,7 @@ function getOrdinal(value){ if (value === 1 || value === 21 || value === 31) {
   let timeSunset = new Date(todaySunsetUnix * 1000);
   let hoursSunset = addZero(timeSunset.getHours());
   let minutesSunset = addZero(timeSunset.getMinutes());
- 
-   
- 
+  
 updateWeather({currentTemp: Math.round(response.data.current.temp),
 currentFeelsTemp: Math.round(response.data.current.feels_like),
 currentDescription: response.data.current.weather[0].description,
@@ -91,18 +59,62 @@ todayHighTemp: Math.round(response.data.daily[0].temp.max),
   todayPrecip: Math.round(response.data.daily[0].pop * 100),
   todayWindspeed: Math.round(response.data.daily[0].wind_speed * 3.6),
   sunrise:`${hoursSunrise}:${minutesSunrise}`,
-  sunset: `${hoursSunset}:${minutesSunset}`,})
-  
-     updateDate({dateOne: showDates(1000*response.data.daily[1].dt)})
-//console.log(date.dateOne)
-  }
+  sunset: `${hoursSunset}:${minutesSunset}`,
 
- function addZero(i) {
+  })}
+
+  function formatDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = days[date.getDay()];
+  let month = months[date.getMonth()];
+  let currentDate = ordinal(date.getDate());
+  let hour = date.getHours();
+  let min = addZero(date.getMinutes());
+  let formattedDate = `${hour}:${min} ${day} ${currentDate} ${month}`;
+  return formattedDate;
+}
+function addZero(i) {
   if (i < 10) {
     i = "0" + i;
   }
   return i;
 }
+function ordinal(currentDate) {
+  if (currentDate === 1 || currentDate === 21 || currentDate === 31) {
+    return currentDate + "st";
+  } else if (currentDate === 2 || currentDate === 22) {
+    return currentDate + "nd";
+  } else if (currentDate === 3 || currentDate === 23) {
+    return currentDate + "rd";
+  } else {
+    return currentDate + "th"
+  }
+}
+
+let currentDate = formatDate(new Date())
+ 
 let searchForm =
     <div className="search-location row">
       <div className="col-3"> </div>
@@ -129,7 +141,7 @@ return (
 <div className="card-deck row-cols-1">
         <div className="card card-current col-sm-6">
              <h5>{cityName}, {country}</h5>
-            <h6><TodayDate/></h6>
+            <h6>{currentDate}</h6>
             <div  className="card-text">
               <div className="row">
               <div className="today-icon col-6">
@@ -161,14 +173,13 @@ return (
 
        <div className="card-deck row-cols-1">
         <div className="card col-sm-6">
-               <h6>
-                 {date.dateOne}</h6>
+               <h6>Friday 4th</h6>
                <div  className="card-text">
                   <i className="fas fa-cloud-rain"></i>
                     <div>15°C</div></div>
         </div>
         <div className="card col-sm-6">
-              <h6>{date.dateOne}</h6>
+              <h6>Saturday 5th</h6>
                 <div  className="card-text">
                   <i className="fas fa-cloud"></i>
                   <div>17°C</div>
@@ -176,7 +187,7 @@ return (
           </div>
        
         <div className="card col-sm-6">
-            <h6></h6>
+            <h6>Sunday 6th</h6>
                 <div  className="card-text">
                   <i className="fas fa-cloud-sun"></i>
                    <div>18°C</div> 
@@ -185,7 +196,7 @@ return (
         </div>
         <div className="card col-sm-6">
          
-            <h6></h6>
+            <h6>Monday 7th</h6>
                 <div  className="card-text">
                   <i className="fas fa-sun"></i>
                     <div>20°C</div>
@@ -193,7 +204,7 @@ return (
         
         </div>  
         <div className="card col-sm-6">
-            <h6></h6>
+            <h6>Tuesday 8th</h6>
                 <div  className="card-text">
                   <i className="fas fa-smog"></i>
                    <div>18°C</div>  
