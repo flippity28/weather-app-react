@@ -4,6 +4,7 @@ import DayTwo from "./daytwo.js";
 import DayThree from "./daythree.js";
 import DayFour from "./dayfour.js";
 import DayFive from "./dayfive.js";
+import "./dayforecast.css"
 
 export default function FiveDayForecast() {
   return (

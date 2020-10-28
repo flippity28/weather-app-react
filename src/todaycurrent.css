@@ -1,9 +1,15 @@
-.card-today {
+.today-current.card {
   max-width: 60%;
-  margin: 0 auto;
+  margin-top: 2vw;
   padding: 0.5vw 0;
+  background-color: #001629;
+  border: solid 1.5px white;
+  box-shadow: #fd7e4a 0 0 13px;
+  margin-right: 5px;
+  margin-left: 0;
 }
-.card-title-one {
+
+.today-current h5 {
   text-align: center;
   font-size: calc(1em + 1.5vw);
   font-weight: 900;
@@ -11,31 +17,31 @@
   text-transform: capitalize;
 }
 
-.card-body-one {
-  padding: 0;
-}
-.time-and-date {
+.today-current h6 {
   text-align: center;
   font-size: calc(0.5em + 0.6vw);
   margin: 0;
   color: white;
 }
-.today-symbol {
+.today-current .today-icon {
   font-size: calc(1.2em + 2.5vw);
   padding-right: calc(0.5em + 0.5vw);
   color: white;
-  text-align: right;
+  text-align: center;
   margin-top: calc(0.2em + 0.4vw);
+  display: block;
 }
-.temp {
+.today-current .current-temp {
   font-size: calc(1.2em + 2.5vw);
   color: white;
   padding: 0;
-  text-align: left;
-}
-.weather-description {
-  font-size: calc(0.5em + 0.7vw);
-  color: white;
   text-align: center;
+}
+.today-current .today-description,
+.today-current .today-feels {
+  display: block;
+  font-size: calc(0.4em + 0.7vw);
+  color: white;
   margin: 0 auto;
+  text-align: center;
 }

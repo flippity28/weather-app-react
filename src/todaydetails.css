@@ -1,15 +1,22 @@
-.today-details .todays-forecast {
-  font-size: calc(0.5em + 0.5vw);
+.today-details.card {
+  max-width: 60%;
+  margin-top: 2vw;
+  padding: 0.5vw 0;
+  background-color: #001629;
+  border: solid 1.5px white;
+  box-shadow: #fd7e4a 0 0 13px;
+  margin-left: 5px;
+  margin-right: 0;
+}
+.today-details .card-text {
+  font-size: calc(0.4em + 0.7vw);
   margin-bottom: 0;
-  padding-bottom: 1vw;
+
   color: white;
   text-align: center;
 }
-.today-details .card-title-two {
+.today-details h5 {
   text-align: center;
   font-size: calc(0.8em + 1.5vw);
   color: white;
-}
-.card-body-two {
-  padding: 0;
 }

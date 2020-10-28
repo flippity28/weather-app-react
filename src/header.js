@@ -1,6 +1,7 @@
 import React from "react";
 import SearchLocation from "./searchlocation.js";
 import sky from "./images/sky.jpg";
+import "./header.css"
 
 export default function Header() {
   return (<div className="header card text-white header-card">
@@ -9,6 +10,7 @@ export default function Header() {
         <h1 className="card-title">Weather Forecast</h1>
         <SearchLocation />
       </div>
+      
     </div>
   );
 }

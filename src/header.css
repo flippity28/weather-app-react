@@ -1,0 +1,20 @@
+.header.card {
+  background-color: #001629;
+  border: solid 1.5px white;
+  box-shadow: #fd7e4a 0 0 13px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.header .card-img-overlay {
+  padding: 0;
+}
+.header.header-card {
+  display: block;
+  margin: 0 auto;
+}
+.header .card-title {
+  text-align: center;
+  font-size: calc(1em + 3vw);
+  text-shadow: #1a1a2e 0 3px 5px;
+  margin-top: 2vw;
+}

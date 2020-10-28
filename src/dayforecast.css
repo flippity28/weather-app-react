@@ -1,0 +1,29 @@
+@media screen and (max-width: 600px) {
+  .day-forecast .card-title-forecast {
+    font-size: 1em;
+    margin-top: 0.5vw;
+    color: #fd7e4a;
+  }
+}
+@media screen and (min-width: 601px) {
+  .day-forecast .card-title-forecast {
+    font-size: 2vw;
+    margin-top: 0.5vw;
+    color: #fd7e4a;
+  }
+}
+.day-forecast .five-day-symbol {
+  font-size: calc(1.3em + 1.5vw);
+  -webkit-text-stroke: 1.5px #fd7e4a;
+}
+.day-forecast .five-day-temp {
+  font-size: calc(0.8em + 0.1vw);
+  color: #fd7e4a;
+}
+.day-forecast {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  max-width: 60%;
+}

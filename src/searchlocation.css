@@ -1,90 +1,15 @@
-.header .card-img-overlay {
-  padding: 0;
-}
-.header .card-title {
-  text-align: center;
-  font-size: calc(1.1em + 3.5vw);
-  text-shadow: #1a1a2e 0 3px 5px;
-  margin-top: 2vw;
-}
-
-.search-location {
-  margin-top: 7vw;
-  margin-bottom: 2vw;
-  text-align: center;
-  font-size: 1.5vw;
-}
-.search-location input {
+input {
   text-align: center;
   border: none;
   background-color: rgba(253, 252, 252, 0.6);
   border-radius: 3px;
   color: #001629;
-  padding: 0px 5px;
-  margin-top: 1vw;
 }
-
-.search-location #search-button {
-  color: grey;
-  transition: ease-in-out 200ms;
-  margin-left: 5px;
-  margin-right: 5px;
+.search-location {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
-.search-location #search-button:hover {
-  background-color: #fd7e4a;
-  color: white;
-}
-.search-location .my-location {
-  background-color: transparent;
-  border: solid grey 1px;
-  border: none;
-  padding: 0;
-}
-
-.search-location .fa-map-marker-alt {
-  color: white;
-  font-size: calc(0.5em + 1.6vw);
-  text-align: left;
-}
-.search-location .fa-map-marker-alt:hover {
-  color: #fd7e4a;
-}
-.card-today {
-  max-width: 60%;
-  margin: 0 auto;
-  padding: 0.5vw 0;
-}
-.card {
-  background-color: #001629;
-  margin: 10px;
-  text-align: center;
-  padding: 2px;
-  box-shadow: #fd7e4a 0 0 13px;
-  border: solid 1.5px white;
-}
-.card-text {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-}
-.card-current .fas,
-.current-temp {
-  font-size: 4vw;
-  line-height: 1.2;
-}
-.card-today {
-  font-size: 1.1vw;
-}
-h5 {
-  text-transform: capitalize;
-  font-size: 2.2vw;
-}
-
 @media screen and (max-width: 600px) {
-  h5 {
-    font-size: 1em;
-    margin-top: 0.5vw;
-  }
   .location-search-form {
     text-align: center;
     font-size: 3vw;
@@ -92,9 +17,39 @@ h5 {
     margin: 0;
   }
 }
-@media screen and (min-width: 601px) {
-  .card-title-three {
-    font-size: 1.3vw;
-    margin-top: 0.5vw;
-  }
+
+.location-search-form {
+  text-align: center;
+  font-size: 1.5vw;
+  padding: 0;
+  margin: 0;
+}
+#search-button {
+  color: grey;
+  transition: ease-in-out 200ms;
+  margin: 1px 1px;
+}
+#search-button:hover {
+  background-color: #fd7e4a;
+  color: white;
+}
+.my-location {
+  background-color: transparent;
+  border: solid grey 1px;
+  border: none;
+  padding: 0;
+}
+
+.fa-map-marker-alt {
+  color: white;
+  font-size: calc(0.5em + 1.4vw);
+  text-align: left;
+  margin: 1px 3px;
+}
+.fa-map-marker-alt:hover {
+  color: #fd7e4a;
+}
+.search-location .card-deck {
+  margin: 0;
+  margin-top: 30px;
 }
