@@ -67,7 +67,7 @@ setCurrentWeather({cityName: response.data.name,
   currentTemp: Math.round(response.data.main.temp),
   currentFeelsTemp: Math.round(response.data.main.feels_like),
   currentDescription: response.data.weather[0].description,
-  timestamp:(response.data.dt)
+  timestamp:(1000*response.data.dt)
 })}
 
   function updateWeatherForecast(response){
