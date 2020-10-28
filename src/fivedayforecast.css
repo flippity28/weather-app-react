@@ -3,5 +3,36 @@
   border: solid 1.5px white !important;
   box-shadow: #fd7e4a 0 0 13px;
   padding: 5px;
-  margin: 10px;
+}
+.five-day-forecast.card-deck {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .five-day-forecast .card {
+    max-width: 60%;
+    margin: 5px auto;
+  }
+}
+@media screen and (min-width: 601px) {
+  .five-day-forecast .card-one {
+    margin-right: 3px;
+    margin-left: 15px;
+  }
+  .five-day-forecast .card-two {
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  .five-day-forecast .card-three {
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  .five-day-forecast .card-four {
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  .five-day-forecast .card-five {
+    margin-left: 3px;
+    margin-right: 15px;
+  }
 }

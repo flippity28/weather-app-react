@@ -1,12 +1,14 @@
 .today-details.card {
-  max-width: 60%;
-  margin-top: 2vw;
   padding: 0.5vw 0;
   background-color: #001629;
   border: solid 1.5px white;
   box-shadow: #fd7e4a 0 0 13px;
   margin-left: 5px;
-  margin-right: 0;
+}
+@media screen and (max-width: 600px) {
+  .today-details.card {
+    margin-left: 0;
+  }
 }
 .today-details .card-text {
   font-size: calc(0.4em + 0.7vw);
