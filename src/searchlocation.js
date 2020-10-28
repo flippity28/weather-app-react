@@ -18,39 +18,61 @@ import "./searchlocation.css"
 export default function SearchLocation() {
 
   const [city, setCity] = useState("London");
- //const [dataLoaded, setDataLoaded] = useState(false)
-  const [weather, updateWeather]= useState({})
- 
+  const [dataLoaded, setDataLoaded] = useState(false)
+  const [currentWeather, setCurrentWeather] = useState({})
+  const [weatherForecast, setWeatherForecast]= useState({})
+  const apiKey = `e024c14bd2f0eae086692698825b45e0`
 
-let apiKey = `e024c14bd2f0eae086692698825b45e0`
 
-  function handleSubmit(event){event.preventDefault();
-    if (city.length> 0) {
-       // search()
+function updateCity(event){setCity(event.target.value)}
+
+
+function handleSubmit(event){event.preventDefault();
+    if (city.length> 0) {search()
+      
    }   else{alert("Please search for a city")}
 }
 
-function search(){let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-   axios.get(apiUrl).then(getCoords)}
+   function search(){let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+   axios.get(apiUrl).then(searchForecastCity)
+   setDataLoaded (true)}
 
-  function updateCity(event){setCity(event.target.value)}
-
-  function getCoords (response){
-  console.log(response);
-  let lat = response.data.coord.lat
-  let long = response.data.coord.lon
-  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}
-&units=metric`;
+  function searchForecastCity (response){
+  let lati = response.data.coord.lat;
+  let long = response.data.coord.lon;
+  let apiUrlOne = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${apiKey}&units=metric`;
+  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lati}&lon=${long}&exclude=minutely,hourly&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlOne).then(updateCurrentWeather);
   axios.get(apiUrlTwo).then(updateWeatherForecast);
+  
       }
+      function searchForecastLocation (location){ ;
+  let lat = location.coords.latitude;
+  let lon=location.coords.longitude;
+  let apiUrlOne = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlOne).then(updateCurrentWeather);
+  axios.get(apiUrlTwo).then(updateWeatherForecast);
+ 
+      }
+  
+ 
+  function getLocation(event){event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchForecastLocation);  
+   }
 
-
+function updateCurrentWeather(response){console.log(response);
+setCurrentWeather({cityName: response.data.name,
+  country: response.data.sys.country,
+  currentTemp: Math.round(response.data.main.temp),
+  currentFeelsTemp: Math.round(response.data.main.feels_like),
+  currentDescription: response.data.weather[0].description,
+  timestamp:(response.data.dt)
+})}
 
   function updateWeatherForecast(response){
    console.log(response);
-  updateWeather({currentTemp: Math.round(response.data.current.temp),
-  currentFeelsTemp: Math.round(response.data.current.feels_like),
-  currentDescription: response.data.current.weather[0].description,
+  setWeatherForecast({
   todayDescription: response.data.daily[0].weather[0].description,
   todayHighTemp: Math.round(response.data.daily[0].temp.max),
   todayLowTemp: Math.round(response.data.daily[0].temp.min),
@@ -59,8 +81,7 @@ function search(){let apiUrl = `https://api.openweathermap.org/data/2.5/weather?
   sunrise:new Date(1000*response.data.daily[0].sunrise),
   sunset: new Date( 1000*response.data.daily[0].sunset),
      })
-     console.log({weather}) 
-     // setDataLoaded (true)
+    
     }
 
 let searchForm =
@@ -75,20 +96,20 @@ let searchForm =
           onChange={updateCity}
         />
         <input type="submit" id="search-button" value="Search" />
-       <button className="my-location">
+       <button className="my-location" onClick={getLocation}>
           <i className="fas fa-map-marker-alt"></i>
         </button>
       </form> 
     </div>
    
   
-   //if (dataLoaded) 
+if (dataLoaded) 
 return (<div className="search-location">  <div>{searchForm} </div>
 <div className="card-deck row-cols-1">
-  <TodayCurrent />
-  <TodayDetails/></div>
+  <TodayCurrent data={currentWeather}/>
+  <TodayDetails data={weatherForecast}/></div>
  
- <FiveDayForecast/>
+ <FiveDayForecast data={weatherForecast}/>
        
          <MoreInfo/>
          <UnitConversion/>
@@ -96,9 +117,9 @@ return (<div className="search-location">  <div>{searchForm} </div>
         </div> 
         );
           
-   //else {search();
-    //return (<div>{searchForm}</div>);
+   else {search();
+    return (<div>{searchForm}</div>);
 
-//};
+}
 
-  }
+}

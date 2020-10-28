@@ -1,4 +1,4 @@
-.container-sm {
+.app.container-sm {
   background-image: linear-gradient(to top, #005a8e 0%, #001629 100%);
   padding: 1vw;
   font-family: "Play", sans-serif;
@@ -7,5 +7,11 @@
   max-width: 70%;
   min-width: 350px;
   border-radius: 3px;
-  height: 740px;
+  height: 800px;
+}
+
+@media screen and (max-width: 600px) {
+  .app.container-sm {
+    height: 1100px;
+  }
 }

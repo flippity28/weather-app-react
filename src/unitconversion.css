@@ -5,6 +5,5 @@
 .unit-conversion .btn {
   color: white;
   border: solid white 1px;
-  font-size: 14px;
-  width: 100px;
+  font-size: calc(0.4em + 0.7vw);
 }

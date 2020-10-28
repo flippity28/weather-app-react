@@ -5,7 +5,7 @@ import "./searchlocation.css";
 
 
 export default function  App() {
-  return (<div className="App container-sm">
+  return (<div className="app container-sm">
       <Header />
            </div>);
 }
