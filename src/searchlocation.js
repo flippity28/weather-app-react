@@ -144,7 +144,7 @@ return (<div className="search-location">  <div>{searchForm} </div>
   <TodayCurrent data={currentWeather} unit={unit}/>
   <TodayDetails data={weatherForecast} unit={unit}/></div>
   <FiveDayForecast data={weatherForecast} unit={unit}/>
-  <MoreInfo/>
+  <MoreInfo data={currentWeather}/>
         
       <div
         className="unit-conversion btn-group row col-4 offset-4"

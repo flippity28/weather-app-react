@@ -1,11 +1,12 @@
 import React from "react";
 
-export default function MoreInfo() {
+export default function MoreInfo(props) {
+  let link = "https://openweathermap.org/find?q="+props.data.cityName
   return (
-    <div className="more-info">
+     <div className="more-info">
       <a
         id="more-info-link"
-        href="https://openweathermap.org/find?q=london"
+        href={link}
         target="_blank"
         rel="noopener noreferrer" 
       >
