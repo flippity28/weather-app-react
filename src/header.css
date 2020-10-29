@@ -1,7 +1,7 @@
 .header.card {
   background-color: #001629;
-  border: solid 1.5px white;
-  box-shadow: #fd7e4a 0 0 13px;
+  border: #da3b4d;
+  box-shadow: #da3b4d 0 0 13px;
 }
 .header .card-img-overlay {
   padding: 0;
@@ -11,5 +11,5 @@
   text-align: center;
   font-size: calc(1em + 3vw);
   text-shadow: #1a1a2e 0 3px 5px;
-  margin-top: 2vw;
+  margin-top: 1.5vw;
 }

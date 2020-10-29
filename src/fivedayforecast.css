@@ -1,8 +1,9 @@
 .five-day-forecast .card {
-  background-color: #001629 !important;
-  border: solid 1.5px white !important;
-  box-shadow: #fd7e4a 0 0 13px;
-  padding: 5px;
+  background-color: rgb(255, 255, 255, 0.7);
+  border: none;
+  box-shadow: #da3b4d 0 0 13px;
+  padding: 3px;
+  margin-top: 0;
 }
 .five-day-forecast.card-deck {
   margin-top: 0;
@@ -16,23 +17,23 @@
 }
 @media screen and (min-width: 601px) {
   .five-day-forecast .card-one {
-    margin-right: 3px;
-    margin-left: 15px;
+    margin-right: 5px;
+    margin-left: 25px;
   }
   .five-day-forecast .card-two {
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
   .five-day-forecast .card-three {
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
   .five-day-forecast .card-four {
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
   .five-day-forecast .card-five {
-    margin-left: 3px;
-    margin-right: 15px;
+    margin-left: 2px;
+    margin-right: 25px;
   }
 }

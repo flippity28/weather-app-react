@@ -1,16 +1,17 @@
 .today-current.card {
   padding: 0.5vw 0;
-  background-color: #001629;
-  border: solid 1.5px white;
-  box-shadow: #fd7e4a 0 0 13px;
+  background-color: rgb(255, 255, 255, 0.7);
+  border: none;
+  box-shadow: #da3b4d 0 0 13px;
   margin-right: 5px;
+  margin-left: 25px;
 }
 
 .today-current h5 {
   text-align: center;
-  font-size: calc(1em + 1.5vw);
+  font-size: calc(0.8em + 1.5vw);
   font-weight: 900;
-  color: white;
+  color: #0d152c;
   text-transform: capitalize;
 }
 
@@ -18,27 +19,28 @@
   text-align: center;
   font-size: calc(0.5em + 0.6vw);
   margin: 0;
-  color: white;
+  color: #0d152c;
 }
 .today-current .today-icon {
   font-size: calc(1.2em + 2.5vw);
   padding-right: calc(0.5em + 0.5vw);
-  color: white;
-  text-align: center;
+  color: #0d152c;
+  text-align: right;
   margin-top: calc(0.2em + 0.4vw);
   display: block;
+  line-height: 40px;
 }
 .today-current .current-temp {
   font-size: calc(1.2em + 2.5vw);
-  color: white;
+  color: #0d152c;
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 .today-current .today-description,
 .today-current .today-feels {
   display: block;
-  font-size: calc(0.4em + 0.7vw);
-  color: white;
+  font-size: calc(0.3em + 0.7vw);
+  color: #0d152c;
   margin: 0 auto;
   text-align: center;
   text-transform: capitalize;

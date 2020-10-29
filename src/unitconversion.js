@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function UnitConversion() {
+  const [unit, setUnit]= useState("")
+  function convertT(event){event.preventDefault;
+  setUnit("F")}
+  
   return (
     <div className="unit-conversion">
       <div
@@ -10,7 +14,7 @@ export default function UnitConversion() {
         <button type="button" className="btn celsius">
           Celsius
         </button>
-        <button type="button" className="btn fahrenheit">
+        <button type="button" className="btn fahrenheit" onClick={convertF}>
           Fahrenheit
         </button>
       </div>

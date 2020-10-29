@@ -1,8 +1,9 @@
 .today-details.card {
   padding: 0.5vw 0;
-  background-color: #001629;
-  border: solid 1.5px white;
-  box-shadow: #fd7e4a 0 0 13px;
+  background-color: rgb(255, 255, 255, 0.7);
+  border: none;
+  box-shadow: #da3b4d 0 0 13px;
+  margin-right: 25px;
   margin-left: 5px;
 }
 @media screen and (max-width: 600px) {
@@ -11,14 +12,17 @@
   }
 }
 .today-details .card-text {
-  font-size: calc(0.4em + 0.7vw);
+  font-size: calc(0.3em + 0.7vw);
   margin-bottom: 0;
 
-  color: white;
+  color: #0d152c;
   text-align: center;
 }
 .today-details h5 {
   text-align: center;
-  font-size: calc(0.8em + 1.5vw);
-  color: white;
+  font-size: calc(0.7em + 1vw);
+  color: #0d152c;
+}
+.today-details .today-description {
+  text-transform: capitalize;
 }

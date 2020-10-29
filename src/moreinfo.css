@@ -1,5 +1,5 @@
 .more-info #more-info-link {
-  color: white;
+  color: #001629;
   text-align: center;
   font-size: calc(0.5em + 0.5vw);
   margin-top: 1vw;
@@ -7,6 +7,6 @@
   display: block;
 }
 .more-info #more-info-link:hover {
-  color: #fd7e4a;
+  color: #90a862;
   text-decoration: none;
 }

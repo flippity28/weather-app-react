@@ -2,28 +2,30 @@
   .day-forecast .card-title-forecast {
     font-size: 1em;
     margin-top: 0.5vw;
-    color: #fd7e4a;
+    color: #0d152c;
   }
 }
 @media screen and (min-width: 601px) {
   .day-forecast .card-title-forecast {
-    font-size: 2vw;
+    font-size: 1.2vw;
     margin-top: 0.5vw;
-    color: #fd7e4a;
+    color: #0d152c;
   }
 }
 .day-forecast .five-day-symbol {
-  font-size: calc(1.3em + 1.5vw);
-  -webkit-text-stroke: 1.5px #fd7e4a;
+  font-size: calc(0.7em + 1.5vw);
+  -webkit-text-stroke: 1.5px #0d152c;
+  line-height: 30px;
+  margin-bottom: 5px;
 }
 .day-forecast .five-day-temp {
   font-size: calc(0.8em + 0.1vw);
-  color: #fd7e4a;
+  color: #0d152c;
 }
 .day-forecast {
   display: block;
   margin: 0 auto;
   text-align: center;
-  color: white;
+  color: #001629;
   max-width: 60%;
 }
