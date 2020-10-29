@@ -8,7 +8,9 @@
 }
 @media screen and (max-width: 600px) {
   .today-details.card {
-    margin-left: 0;
+    max-width: 60%;
+    display: block;
+    margin: 5px auto;
   }
 }
 .today-details .card-text {

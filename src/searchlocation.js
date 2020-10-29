@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import axios from "axios";
 import Footer from "./footer.js"
 import "./footer.css";
-import "./unitconversion.css";
 import MoreInfo from "./moreinfo.js";
 import "./moreinfo.css";
 import TodayCurrent from "./todaycurrent.js"
@@ -12,6 +11,7 @@ import "./todaydetails.css"
 import FiveDayForecast from "./fivedayforecast.js"
 import "./fivedayforecast.css"
 import "./searchlocation.css"
+import Loader from 'react-loader-spinner'
 
 
 export default function SearchLocation() {
@@ -145,9 +145,9 @@ return (<div className="search-location">  <div>{searchForm} </div>
   <TodayDetails data={weatherForecast} unit={unit}/></div>
   <FiveDayForecast data={weatherForecast} unit={unit}/>
   <MoreInfo/>
-         <div className="unit-conversion">
+        
       <div
-        className="btn-group row col-4 offset-4"
+        className="unit-conversion btn-group row col-4 offset-4"
         role="group"
              >
         <button type="button" className="btn celsius" onClick={convertC}>
@@ -157,14 +157,20 @@ return (<div className="search-location">  <div>{searchForm} </div>
           Fahrenheit
         </button>
       </div>
-    </div>
+   
   <Footer />
         </div> 
         );
           
    else {search();
-    return (<div>{searchForm}</div>);
-
-}
+    return (<div className="loader col-12"><Loader
+         type="Grid"
+         color="#ac1f32"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ 
+      />)</div>)
+   }
 
 }

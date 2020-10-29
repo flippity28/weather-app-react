@@ -1,7 +1,5 @@
 .header.card {
-  background-color: #001629;
-  border: #da3b4d;
-  box-shadow: #da3b4d 0 0 13px;
+  border: none;
 }
 .header .card-img-overlay {
   padding: 0;

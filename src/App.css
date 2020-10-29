@@ -1,12 +1,12 @@
 .app.container-sm {
-  background-image: linear-gradient(to top, #005a8e 0%, #001629 100%);
+  background-image: linear-gradient(to top, #ac1f32 0%, #d1914f 100%);
   padding: 1vw;
   font-family: "Play", sans-serif;
-  margin-top: 1.5vw;
-  margin-bottom: 1.5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   max-width: 70%;
   min-width: 350px;
-  height: 800px;
+  height: 650px;
 }
 
 @media screen and (max-width: 600px) {

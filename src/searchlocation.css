@@ -6,7 +6,7 @@
   color: #001629;
 }
 .search-location {
-  margin-top: calc(1em + 3vw);
+  margin-top: calc(1em + 2vw);
   margin-bottom: 3vw;
 }
 @media screen and (max-width: 600px) {
@@ -25,7 +25,7 @@
   margin: 0;
 }
 .search-location #search-button {
-  color: grey;
+  color: #001629;
   transition: ease-in-out 200ms;
   margin: 1px 1px;
   outline: none;
@@ -56,19 +56,21 @@
 }
 
 .search-location .card-deck {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .unit-conversion .btn-group {
-  margin-top: 20px;
-  color: white;
+  margin-top: 10px;
+  color: #001629;
   transition: 200ms ease-in-out;
 }
 .unit-conversion .btn {
-  color: white;
-  border: solid white 1px;
-  font-size: calc(0.4em + 0.7vw);
+  color: #001629;
+  border: none;
+  font-size: calc(0.4em + 0.5vw);
+  background-color: rgb(255, 255, 255, 0.7);
 }
-.unit-converson .btn:focus {
-  color: red !important;
+.loader {
+  position: fixed;
+  left: 44vw;
 }
