@@ -70,6 +70,7 @@
   font-size: calc(0.4em + 0.5vw);
   background-color: rgb(255, 255, 255, 0.7);
   padding: 3px;
+  width: calc(40px + 1vw);
 }
 .loader {
   position: fixed;
