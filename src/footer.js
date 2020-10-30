@@ -9,7 +9,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer" 
       >
-        Open-source code{" "}
+        Open-source code <i class="fab fa-github"></i> {" "}
       </a>
       by{" "}
       <a

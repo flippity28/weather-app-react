@@ -1,8 +1,7 @@
 .today-details.card {
-  padding: 0.5vw 0;
+  padding: 0.3vw 0;
   background-color: rgb(255, 255, 255, 0.7);
-  border: none;
-  box-shadow: #da3b4d 0 0 13px;
+  border: solid #da3b4d 2px;
   margin-right: 25px;
   margin-left: 5px;
 }
