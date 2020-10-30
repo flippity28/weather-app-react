@@ -1,7 +1,7 @@
 .five-day-forecast .card {
   background-color: rgb(255, 255, 255, 0.7);
   border: solid #da3b4d 2px;
-  padding: 0.3vw 0;
+  padding: 0.2vw 0;
   margin-top: 0;
 }
 .five-day-forecast.card-deck {
